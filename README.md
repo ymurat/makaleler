@@ -4,6 +4,20 @@ Academic publications by Murat Yılmaz and collaborators.
 
 ## Papers
 
+### A roadmap for a Metaverse-based digital governance: A case of the Gambia
+
+**Authors:** Pa Sulay Jobe, Murat Yilmaz, Hüseyin Emre Ilgın
+
+**Venue:** PLOS ONE, Volume 19, Issue 12, Article e0314388, 2024
+
+**DOI:** [10.1371/journal.pone.0314388](https://doi.org/10.1371/journal.pone.0314388)
+
+**Links:**
+- [Project Page](https://ymurat.github.io/makaleler/gambia-metaverse-governance/docs/)
+- [PDF](https://ymurat.github.io/makaleler/gambia-metaverse-governance/docs/paper.pdf)
+
+---
+
 ### A Systematic Investigation into the Use of Game Elements in the Context of Software Business Landscapes: A Systematic Literature Review
 
 **Authors:** Serhan Olgun, Murat Yilmaz, Paul Clarke, Rory V. O'Connor
@@ -49,6 +63,7 @@ Academic publications by Murat Yılmaz and collaborators.
 ## Repository Structure
 
 Each paper has its own subdirectory:
+- `gambia-metaverse-governance/` - PLOS ONE 2024 paper on Metaverse-based digital governance
 - `gamification-software-business-slr/` - SPICE 2017 paper on gamification in software business
 - `vr-public-speaking-anxiety/` - EuroSPI 2017 paper on VR exposure therapy
 - `yazilim-surec-degisimi/` - Turkish preprint on software process change
