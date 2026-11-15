@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Murat Yılmaz">
+  <title>Yazılım Süreç Değişimlerinin ulusal yazılım endüstrisine olan etkileri: Bir vaka çalışması</title>
+  <style>
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --heading-color: #000000;
+  --link-color: #0066cc;
+  --border-color: #cccccc;
+  --button-bg: #f0f0f0;
+  --button-hover: #e0e0e0;
+  --toc-bg: #f8f8f8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --link-color: #66b3ff;
+    --border-color: #444444;
+    --button-bg: #2a2a2a;
+    --button-hover: #3a3a3a;
+    --toc-bg: #252525;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background: var(--bg-color);
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  color: var(--heading-color);
+  font-weight: 600;
+}
+
+.paper-title {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.paper-title-en {
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  .paper-title-en {
+    color: #999;
+  }
+}
+
+.preprint-badge {
+  display: inline-block;
+  background: #fff3cd;
+  color: #856404;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family: sans-serif;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .preprint-badge {
+    background: #664d03;
+    color: #ffecb5;
+  }
+}
+
+.authors {
+  margin: 1.5rem auto;
+  font-size: 1rem;
+}
+
+.authors p {
+  margin: 0.25rem 0;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.625rem 1.25rem;
+  background: var(--button-bg);
+  color: var(--text-color);
+  text-decoration: none;
+  border-radius: 6px;
+  font-family: sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--button-hover);
+}
+
+.abstract {
+  background: var(--toc-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.abstract h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.abstract p {
+  margin: 0.75rem 0;
+}
+
+.keywords {
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.keywords strong {
+  font-style: normal;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  margin-top: 3rem;
+}
+
+.toc {
+  position: sticky;
+  top: 1rem;
+  flex: 0 0 200px;
+  background: var(--toc-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  align-self: flex-start;
+}
+
+.toc h2 {
+  margin-top: 0;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.toc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc li {
+  margin: 0.5rem 0;
+}
+
+.toc a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+article {
+  flex: 1;
+  min-width: 0;
+}
+
+article h1 {
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+article h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+article h2 {
+  font-size: 1.375rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+article h3 {
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+article p {
+  margin: 1rem 0;
+  text-align: justify;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9375rem;
+  overflow-x: auto;
+  display: block;
+}
+
+article table caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  caption-side: top;
+}
+
+article table thead {
+  background: var(--toc-bg);
+}
+
+article table th,
+article table td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+article table th {
+  font-weight: 600;
+}
+
+article table tbody tr {
+  display: table-row;
+}
+
+.cite {
+  background: var(--toc-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 3rem 0 2rem;
+}
+
+.cite h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.cite pre {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.cite code {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  footer {
+    color: #999;
+  }
+}
+
+@media (max-width: 900px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .toc {
+    position: static;
+    flex: 1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .paper-title {
+    font-size: 1.5rem;
+  }
+
+  .paper-title-en {
+    font-size: 1.2rem;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="preprint-badge">Ön baskı (preprint)</div>
+      <h1 class="paper-title">Yazılım Süreç Değişimlerinin ulusal yazılım endüstrisine olan etkileri: Bir vaka çalışması</h1>
+      <div class="paper-title-en">Exploring the implication of software processes change in national software industry: A case study</div>
+      
+      <div class="authors">
+        <p><strong>Murat Yılmaz</strong></p>
+        <p>Bilgisayar Mühendisliği Bölümü</p>
+        <p>Çankaya Üniversitesi, Ankara</p>
+      </div>
+
+      <div class="button-group">
+        <a href="#tam-metin" class="btn">Tam metin</a>
+        <a href="manuscript.docx" class="btn">DOCX indir</a>
+        <a href="manuscript.pdf" class="btn">PDF indir</a>
+        <a href="https://github.com/ymurat/makaleler" class="btn">GitHub</a>
+      </div>
+    </header>
+
+    <div class="abstract">
+      <h2>Özet</h2>
+      <p>Yazılım geliştirme süreçleri gelişen yeni teknolojikler ve onun sağladığı imkanlar doğrultusunda sürekli değişim gösterir. Yazılım müşterilerinin, şirketler üzerindeki hızlı üretim isteği ile yeni geliştirilen tüm yazılım geliştirme süreçleri üretim baskısını arttırarak sürüm döngüleri hızlandırılmayı gerektirmiştir. Bu çevik üretim ihtiyacı ile yazılım şirketleri yazılım geliştirme süreçlerini, müşteriden gelen gereksinimlerin değişmesi ve üretim hatlarını sürekli gözden geçirmek ve güncellemek zorunda kalmaktadırlar. Bu makalede, yazılım geliştiren üç şirketin yazılım geliştirme yöntemleri durum çalışması yöntemi ile detaylı olarak incelenerek, değişim ile baş etme şekilleri sistematik bir şekilde kıyaslanmıştır. Elde edilen bilgiler ışığında, üç firmanın da yazılım gelişime yöntemlerindeki değişiklikler sorgulanarak edindikleri tecrübeler ve bu edinimlerin şirket üzerindeki etkileri incelenmiştir. Çalışmanın sonucunda yazılım ürün geliştirme başarısının sürecin iyi işletilmesinden önemli bir oranda etkilendiği, yazılım geliştiren takımların da bilgiyi birbirilerine aktarma başarısının süreçleri olumlu yönde etkilediği gözlenmiştir.</p>
+      <p class="keywords"><strong>Anahtar kelimeler:</strong> Çeviklik, Yazılım geliştirme süreçleri, yazılım mühendisliği, vaka çalışması.</p>
+    </div>
+
+    <div class="abstract">
+      <h2>Abstract</h2>
+      <p>The software development process shows a continuous change based on the new technologies and opportunities such technologies might provide. The software customers are aiming to accelerate their version circulation by increasing the production pressure of all the newly developed software development processes and rapid production demand on the companies. With this agile production requirement, software companies are forced to constantly upgrade their production processes and to constantly upgrade their product lines. In this article, the software development methods of the three software development companies assessed, using case study technique, in detail and the ways of coping with change are systematically compared. In the light of the information obtained, the experiences of the three firms investigated by examining the changes in the software development methods and the effects of these acquisitions on the company are examined. As a result of the study, it was observed that the success of the software product development was influenced significantly by the good operation of the process, and the success of the software development teams in transferring the information to the one affected the processes positively.</p>
+      <p class="keywords"><strong>Keywords:</strong> Agility, Software development processes, Software engineering, Case study.</p>
+    </div>
+
+    <div class="content-wrapper">
+      <nav class="toc">
+        <h2>İçindekiler</h2>
+        <ul>
+          <li><a href="#giriş">Giriş</a>
+            <ul>
+              <li><a href="#çevik-metodolojiler">Çevik Metodolojiler</a></li>
+            </ul>
+          </li>
+          <li><a href="#yöntem">Yöntem</a>
+            <ul>
+              <li><a href="#araştırma-modeli">Araştırma modeli</a></li>
+            </ul>
+          </li>
+          <li><a href="#endüstriyel-vaka-çalışmaları">Endüstriyel Vaka Çalışmaları</a></li>
+          <li><a href="#sonuç-ve-önerliler">Sonuç ve Önerliler</a></li>
+          <li><a href="#bibliography">Bibliography</a></li>
+          <li><a href="#atıf">Atıf</a></li>
+        </ul>
+      </nav>
+
+      <article id="tam-metin">
+        <section id="giriş" class="level1">
+<h1>Giriş</h1>
+<p>Yazılım mühendisliği, yazılım ürünün tasarım aşamasından post-mortum (ürünün ölüp, piyasadan tamamen yok olması) aşamasına kadar gerçekleşen tüm süreçlerin sistematik bir şekilde yönetilebilmesini sağlayan mühendislik disiplinidir. Diğer tüm mühendislik disiplinlerine göre süreçleri açısından, üreticilerinin hem sosyal hem de teknik yetenekler geliştirmesi gereken bir yapıdadır. Bu kompleks yapı, yazılım geliştirme süreçlerinin genelleştirilmesi ve tüm projelere uygun tek bir süreç geliştirilmesi olasılığını imkânsız kılmaktadır. Yazılım süreçleri sosyal görünümü bu süreçleri "<em>yazılım eserlerinin, yapısal sosyal aktivitelerin koordinasyonu ve bu eserleri geliştiren pratisyenlerin işlerinin yetenekleri ile uygun üretkenlik kısıtları içerisinde sistematik üretimi</em>" olarak nitelendirilebilir [1]. Yazılım geliştirme başarımı yazılım geliştiren takımın teknik kabiliyetleri dışında verimli iletşim kurabilme, birlikte uyumlu iş geliştirebilme ve çalışabilme gibi yazılım geliştirme aktivitelerinin sosyal görünümden etkilenmektedir. Ek olarak, yazılım geliştirme başarısı, bu aktivitelerin sürdürülerbilir bir yapıda olmasını gerektirmektedir. Bu bilgiler ışığında, yazılım geliştirme süreçlerinin karmaşık ve uyarlanımcı bir yapı gösterdiği de kabul edilir [2]. Bu yapının kurulumu ve geliştirilmesi sırasında elde edilen deneyimleri rapor etmek ve tekrar kullanılabilirliğini sağlamak, üretim süreçleri çoğunlukla doğa yasalarından etkilenen mühendislik disiplinlerine göre çok daha zordur. Yazılım ürününün geliştirilmesini etkileyen birçok faktör bulunmaktadır. Yazılım ürününün karmaşık sosyo-teknik yapısı dışında, gereksinimlerin değişkenliği, geliştiren bireylerin bilgi ve tecrübe düzeyi ve organizasyonun kültürel yapısı da etkileyen diğer faktörler arasındadır.</p>
+<p>Bunun dışında diğer bir önemli sorun, yazılım üretimi sadece bu konuda bilgili ve deneyimli kişiler tarafından yapılmamakta, diğer mühendisliklere göre daha fazla fason üretim alanı olarak görülmektedir. Literatürde <em>kazara geliştirme</em> olarak geçen bu yaklaşım müşteri grubunun acil gereksinimlerine göre bir süreç veya ölçme yöntemi kullanmadan kısa vadeli ve sadece anlık sorun odaklı bir şekilde yazılım geliştirilmesi faaliyetleri olarak nitelendirilir. Bu şekilde, sistematik bir süreç yapısı olmadan geliştirilen yazılım ürünleri maalesef müdahale edilmesi ve bakımı zor ve sorunlu ürünler olarak sınıflandırılmaktadır. Bunun yanında, yazılım süreçleri, yazılım mühendisliğinin doğuşundan bu yana, edinilen tecrübeler doğrultusunda gelişerek, varlığını sürdürmektedir.</p>
+<p>1960'lardan bu yanda çok farklı şekillerde ele anılmış ve yazılım geliştirme süreçlerini iyileştirmek için farklı yaklaşımlar önerilmiştir. Yazılım geliştirme metodolojileri gereksinim analizi, modelleme, ürünü kodlama, test etme ve ürünün bakımını içeren üretim basamakları açısından farklılık göstermese de bu evrelerin uygulama sırası, zamanlaması ve akış kontrolü açısından değişiklikler içerir. Klasik yazılım geliştirme (şelale veya plan tabanlı olarak da bilinir) yöntemi, bu evrelerin biri bitmeden diğer basamağın başlamasını ardışık bir şekilde icra edilmesi fikri üzerine kuruludur. Daha sonraları popüler olan yinelemeli yöntem bu fazları kendi içinde küçük evrelere bölerek bu evrelerin birbirine geçişlerinin kontrol edilmesine izin veren bir yapıyı önermektedir. 2000'li yıllardan sonra ise çevik yazılım geliştirme yöntemleri popülerlik kazanarak kazanarak neredeyse pek çok proje de kullanılmaya başlanmıştır.</p>
+<h2 class="unnumbered" id="çevik-metodolojiler">Çevik Metodolojiler</h2>
+<p>Artan müşteri ihtiyaçları, değişim ve esneklik gereksinimleri ve piyasa baskıları çevik yazılım geliştirme yöntemlerinin doğmasına sebep olmuştur. Çevik yazılım geliştirme yöntemlerinin çoğu, iteratif yazılım geliştirme yaklaşımlarında olduğu gibi, müşteri değişken gereksinimler ve kısa iteratif döngülerle yazılım geliştirme üzerine yoğunlaşmaktadır [3]. Çevik yazılım geliştirme yaklaşımı; risk ve karşılaşılan problemlere karşı esneklik, iterasyonlar arası hızlı geliştirmeyi öngören ve her iterasyonda müşterinin yönlendirmesiyle desteklenen bir yapıdadır. Literatürde çeşitli çevik yöntemler bulunmaktadır ve hepsi çevik manifestonun önermelerinde bulunan ortak noktalar etrafında şekillenmişlerdir. Bu manifestoya göre ortak noktalar şunlardır:</p>
+<ul>
+<li><p>Projeyi hazırlamak için oluşturulan süreç yapısı ve araçlarından daha çok çalışan personele ve onların arasındaki etkileşime öncelik verilmesi,</p></li>
+<li><p>Geniş kapsamlı yazılı dokümantasyon hazırlıklarından daha çok çalışan yazılıma öncelik verilmesi,</p></li>
+<li><p>Sözleşmeler üzerindeki müzakerelere müşteri ile işbirliğine öncelik verilmesi,</p></li>
+<li><p>Planlama ve dökümantasyon (kalıp) hazırlanmasına değişime adapte olma ve ona cevap vermeye öncelik verilmesi.</p></li>
+</ul>
+<p>Günümüzde en bilinen ve sıkça kullanılan çevik yazılım geliştirme pratikleri; Scrum [4], Extreme Programming [5], Kanban [6], Özellik Odaklı Geliştirme [7], Adaptif Yazılım Geliştirme [8]'dir. Çevik yazılım geliştirme yöntemleri bu popülaritelerine rağmen kısa iterasyon döngüleri yapısı ve bu iterasyonların değişkenlik göstermesi sebepleriyle projelerin yönetimini ve kapsamının belirlenmesini zorlaştırmaktadır. Ayrıca yazılım geliştiren takımların sık ve verimli etkileşimlerini gerektirir. İletişim bozuklukları, yeni yöntemlerin uygulanması esnasında karşılaşılan direncin aşılması gibi organizasyonel faktörler de çevik yazılım geliştirme yöntemlerinin takımlar tarafından benimsenmesini güçleştirmektedir [9]. Diğer bir husus, üretimin hızlı ve iterasyonların sürekli tekrar edilmesi esnek bir proje yapısını ortaya koyarak yazılımın üretim zamanı ve üretimdeki aktivitelerin müşteri tarafından tahmin edilmesini zorlaştırarak müşteri tarafında hoşnutsuzluğun ortaya çıkmasına sebep olabilmektedir.</p>
+<p>Sınırlı sayıda ampirik çalışmada, çevik yöntemlere geçiş, bunun faydaları ve zorluklarının tartışıldığı gözlenmektedir [10, 11, 12]. Bu çalışmaların genel sonuçlarına bakıldığında, bu geçişin genellikle teknik eğitim, eğitim programları, danışmanlık ve mentorluk gibi organizasyonel arayışlarda bulunduğu, ayrıca bu geçişin organizasyonlarda dönüşümlere sebep olduğu ifade edilmektedir. Bu ampirik bulguların gerçek vaka ve katılımcı yorumlarıyla detaylı rapor edildiği sınırlı sayıda çalışma bulunmaktadır. Çevik yöntemlerin endüstride nasıl uygulandığına dair konusundaki bilgi eksikliğinin giderilmesinde daha fazla vaka çalışmaları raporu önem arz etmektedir.</p>
+</section>
+<section id="yöntem" class="level1">
+<h1>Yöntem</h1>
+<p>Çalışmanın yöntemi, üç şirketin örneklem olarak seçildiği, yarı yapılandırılmış görüşmelerin yapıldığı nitel bir durum çalışmasıdır [13]. Çalışma, keşfedici nitelikteki araştırmaların yöntemi olan durum çalışması yöntemi ile gerçekleştirilmiştir. Ayrıca bu araştırmada grup halinde çalışma ortamında ortak uygulamaları incelemeyi gerektiren, grupların ortak değerlerini ortaya çıkarmaya çalışan etnografik bir perspektif kullanılmıştır. Bununla birlikte, hem organizasyonel değerlerin etkilerini, hem de organizasyona etkiyen sosyo-teknik yapıları inceleyen sosyo-teknik yaklaşım da benimsenmiştir [14]. Çalışmada, niteleyici yaklaşımlar kapsamındaki bilgiler, katılımcılarla açık uçlu sorularla görüşmeler yapılarak toplanmıştır.</p>
+<h2 id="araştırma-modeli">Araştırma modeli</h2>
+<p>Çalışma kapsamında, yazılım geliştiren şirketlerde çalışan paydaşların yazılım geliştirme süreçlerine dair görüşlerinin tespiti amaçlanmıştır. Araştırmanın evrenini, yazılım geliştiren tüm yazılım şirketleri ve bu şirketlerin paydaşları oluşturmaktadır. Örneklem ise, Türkiye'de yazılım geliştiren, farklı teknoloji kullanan, farklı boyutlarda projeler yürüten, ürün ve hizmet bazlı yazılım geliştiren üç firma çalışmanın yürütülebilmesi için seçilmiş ve her bir firmadan çeşitli senaryolar ile örneklem konuları tespit edilmiştir<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Durum çalışmasında, üç farklı firmada görev yapan farklı yaş, cins, teknik bilgi seviyesinde, farklı görev ve pozisyonlarda çalışan yazılım geliştiriciler ve yöneticiler ile görüşülmüştür. Veri toplamada kullanılan teknikler, şirket gözlemleri, döküman analizleri ve görüşmelerdir. Bu tekniklerin içinde en ağırlıklı olanı görüşmelerdir ve görüşmeler üzerinde durularak detaylı analiz yapılmıştır. Görüşmeler şirketin şartları ve görüşme yapılan kişinin talebi doğrultusunda birebir ve grup halinde de yapılmıştır. Şahıs ve şirket isimlerinin anonimleştirilmesinin talep edilmesi sebebiyle bir kod sistemi oluşturularak katılımcılar kodlanmıştır. Görüşmeler yarı yapılandırılmış olarak yapılmış ve her bir görüşme 1 saat ile 2.5 saat arasında değişiklik göstermiştir.</p>
+<p>Vaka çalışması yaklaşımı, karmaşık araştırma konularını, özellikle bilgi eksikliğinden kaynaklanan belirsizliklere karşı çok sayıda bilgi açısı sunmak için kullanılır [15]. Araştırma kapsamında her bir şirket için ve şirketten bağımsız olarak katılımcıların ifade ettiği görüşler incelenerek kategoriler belirlenmiştir. Kategorileri belirlemek için görüşme metinleri satır satır incelenmiş ve aralarındaki benzerlikler ve farklılıklar çerçevesinde gruplara ayrılmıştır. Konuların anlatımını kolaylaştırmak ve görüşlerin bütünlüğünü bozmamak amacıyla görüşmelerden doğrudan alıntı yapılmıştır.</p>
+</section>
+<section id="endüstriyel-vaka-çalışmaları" class="level1">
+<h1>Endüstriyel Vaka Çalışmaları</h1>
+<p>Bu bölümde yazılım sürecinin değişimi sırasında ve değişim sonrasında üç firmanın deneyimlerini tartışmak ve karşılaştırmak için toplanan bilgiler sunulmaktadır. Firmaların proje yapılarına ve süreçlerine ilişkin nitel bilgiler tablolar halinde özetlenmiştir. Bu bilgilerle birlikte katılımcı görüşleri değerlendirilerek Tablo 1 ve Tablo 2'de gösterilmiştir.</p>
+<p><strong>Tablo 1.</strong> Üç firmanın proje bilgileri</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Özellik</th>
+<th style="text-align: left;">Firma 1</th>
+<th style="text-align: left;">Firma 2</th>
+<th style="text-align: left;">Firma 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Firma Büyüklüğü</td>
+<td style="text-align: left;">Orta ölçekli</td>
+<td style="text-align: left;">Orta ölçekli</td>
+<td style="text-align: left;">Küçük ölçekli</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Proje Türü</td>
+<td style="text-align: left;">Ürün</td>
+<td style="text-align: left;">Hizmet</td>
+<td style="text-align: left;">Ürün ve Hizmet</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Proje Süresi</td>
+<td style="text-align: left;">1-2 yıl</td>
+<td style="text-align: left;">2-8 ay</td>
+<td style="text-align: left;">3-6 ay</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Yazılım Geliştirme Metodu</td>
+<td style="text-align: left;">Scrum</td>
+<td style="text-align: left;">Kanban</td>
+<td style="text-align: left;">Scrum ve XP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Müşteri Konumu</td>
+<td style="text-align: left;">İç ve dış müşteri</td>
+<td style="text-align: left;">Dış müşteri</td>
+<td style="text-align: left;">İç ve dış müşteri</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Takım Büyüklüğü</td>
+<td style="text-align: left;">5-8</td>
+<td style="text-align: left;">3-7</td>
+<td style="text-align: left;">3-5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tablo 2.</strong> Üç firmada uygulanan süreç değişimi özellikleri</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Özellik</th>
+<th style="text-align: left;">Firma 1</th>
+<th style="text-align: left;">Firma 2</th>
+<th style="text-align: left;">Firma 3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Önceki Süreç</td>
+<td style="text-align: left;">Şelale</td>
+<td style="text-align: left;">Evrimsel (RUP)</td>
+<td style="text-align: left;">Kazara Geliştirme</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sonraki Süreç</td>
+<td style="text-align: left;">Scrum</td>
+<td style="text-align: left;">Kanban</td>
+<td style="text-align: left;">Scrum ve XP</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Geçiş Motivasyonu</td>
+<td style="text-align: left;">Müşteri baskısı</td>
+<td style="text-align: left;">Sürüm gecikmesi</td>
+<td style="text-align: left;">Süreç problemleri</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Geçiş Süresi</td>
+<td style="text-align: left;">1 yıl</td>
+<td style="text-align: left;">6 ay</td>
+<td style="text-align: left;">8 ay</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Karşılaşılan Zorluklar</td>
+<td style="text-align: left;">Direnç, rol değişimi</td>
+<td style="text-align: left;">İterasyon kayması</td>
+<td style="text-align: left;">Teknik borç, test</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Elde Edilen Faydalar</td>
+<td style="text-align: left;">Hızlı teslimat</td>
+<td style="text-align: left;">Görünürlük</td>
+<td style="text-align: left;">İletişim artışı</td>
+</tr>
+</tbody>
+</table>
+<p>Yapılan görüşmeler sonucunda katılımcılar, çevik yöntemlerin faydalarını genel olarak gözlemlemiş olsalar da geçiş sürecinde yaşanan zorlukların, takım yapısının değişmesinin, rollerin değişmesinin, müşteri beklentilerinin yönetilmesinin ve teknik borçların altında ezilmemenin önemine dikkati çekmişlerdir. Ayrıca katılımcılar, değişim sürecinin mutlaka eğitimle desteklenmesi gerektiğini, coaching ve mentörlük ile yönetilmesini ve yönetim desteğinin alınmasının önemli olduğunu belirtmişlerdir.</p>
+<p>Çalışmada firmaların deneyimleri arasındaki benzerlikler ve farklılıklar incelendiğinde, üç firmanın da yazılım süreç değişiminin sancılı bir süreç olduğu, ancak uzun vadede yazılım geliştirme aktivitelerinin iyileştirilmesine katkı sağladığı görülmüştür. Katılımcılar çevik yöntemlerin takım içindeki iletişimi arttırdığını, müşteri ile etkileşimin güçlendiğini, değişen gereksinimlere hızlı cevap verebildiklerini ve ürün kalitesinin arttığını belirtmişlerdir. Bununla birlikte iterasyon kaymaları, teknik borç birikimi, rol değişimlerine direnç, test otomasyonu eksikliği ve müşteri beklentilerinin yönetilmesi gibi zorluklarla karşılaştıklarını ifade etmişlerdir. Katılımcılar ayrıca bu süreçlerin öğrenme eğrisinin yüksek olduğunu ve sürecin başarılı olması için üst yönetim desteğinin, eğitimin ve coaching desteğinin önemli olduğunu vurgulamışlardır.</p>
+<p>Firmaların deneyimlerine bakıldığında, süreç değişiminin sadece teknik bir değişim olmadığı, aynı zamanda kültürel ve organizasyonel bir dönüşüm gerektirdiği görülmüştür. Katılımcılar, çevik yöntemlerin başarısının büyük ölçüde takımın bu değişime olan inancına ve benimsemesine bağlı olduğunu belirtmişlerdir. Yazılım geliştiricilerin çoğu, yeni araçları ve metodolojileri denemeye istekli olsalar da, bazıları alışkanlıklarından vazgeçmekte zorlanmış ve değişime karşı direnç göstermişlerdir. Katılımcılar, bu direnç sürecini aşmak için oyunlaştırma ve eğlenceli aktiviteler gibi yöntemlerin kullanılabileceğini ve bu tür yaklaşımların takım motivasyonunu artırabileceğini öne sürmüşlerdir.</p>
+<p>Ayrıca, katılımcılar süreç değişimi sırasında yaşanan tecrübelerin ve öğrenilen derslerin belgelenmesinin ve paylaşılmasının önemini vurgulamışlardır. Bu tür dokümantasyonun şirket hafızasına katkı sağlayacağını ve gelecekteki değişim çalışmalarında rehber olacağını düşünmektedirler. Katılımcılar, çevik pratikleri uygularken, süreçlerin uygulama kolaylıklarını ortaya çıkaracak yollar bulunması gerektiğini belirtmişlerdir. Ayrıca katılımcılar bu tür aktiviteler için geliştirilecek oyun destekli uygulamalarım özellikle çevik yazılım geliştiren organizasyonlara katkı sağlayacağı ve karşılaşılabilecek aksaklıklara karşı hazırlıklı olma, iterasyon planlama açısından önemli bir etkisi olabileceği konusunda görüş̧ bildirmişlerdir. Bununla birlikte, birçok katılımcı ortaya çıkan bulguların ve öğrenilen derslerin süreç değişimi çalışmaları dışında da kullanılması ve çalışanların erişimine açık olacak şekilde sunulmasının şirket hafızasına katkı sağlayacağını düşünmektedirler.</p>
+</section>
+<section id="sonuç-ve-önerliler" class="level1">
+<h1>Sonuç ve Önerliler</h1>
+<p>Bu çalışma yazılım süreç değişimlerinin ulusal yazılım endüstrisindeki etkilerini tartışmak ve uzman katılımcıların süreçler hakkındaki görüşlerini ortaya koymak amacıyla yapılmıştır. Üç farklı şirketten sağlanan katılımcılarla yarı yapılandırılmış̧ mülakatlar yapılarak katılımcılardan şirketlerindeki süreç değişimlerini ve yazılım geliştirme faaliyetlerini tüm boyutlarıyla değerlendirmeleri istenmiştir. Elde edilen bulgular süreç değişimlerinin sancılı bir dönem olduğunu göstermesiyle birlikte, yazılım geliştirme aktivitelerinin iyileştirmesine katkı sağladığını ve geliştirilebilecek uygulamaların yazılım geliştiricileri motive edici özellikleri olması gerektiği ve süreç değişimine karşı olan dirence karşı olumlu tutum kazanmalarında etkili olduğunu ortaya koymaktadır.</p>
+<p>Bu karşılaştırmada, üç yazılım şirketinin yazılım geliştirme süreçlerini ayrıntılı olarak incelemeye çalıştık. Bu inceleme sırasında yazılım sürüm döngülerinin hızlı yapılması ile ilgili sektörel bir baskı olduğu göze çarpmaktadır. Müşteri, yeni sürüme daha hızla kavuşmak ve değişimi kısa iterasyonlar ile gerçekleştirmek ve neredeyse her hafta yeni bir sürüm görmek istemektedir. Yazılım geliştirme araçlarındaki özellikle takım ve kaynak kod otomasyonu gelişmeler projelerin zerreleştirilmesini zorunlu hale getirmektedir. Bu amaçla üç şirketinde yapılan analiz süreç değişiminin organizasyonun (verim, roller ve sosyal yapısının), gereksinim analizi (işlevsel veya işlevsel olmayan fonksiyonların), iyileştirme süreçleri, çevik metotlar ve etkileşim özelliklerine bağlı durumsal faktörlerle değiştiği ortaya çıkmıştır. Yazılım geliştirmek için kurulan süreç yapısının gerekirse bu faktörlere göre iyileştirilmesi mümkün olabilmektedir. Yapılan vaka çalışması ile ulaşılan bazı sonuçlar şu şekildedir.</p>
+<p>Görüşülen yazılım geliştiricilerin büyük çoğunluğu yeni metodolojileri takip etmeye çalıştıkları sonucuna ulaşılmıştır.</p>
+<p>Bununla birlikte, yazılım geliştiricilerin birçoğu yeni süreçlere geçme konusunda istekli görünmemektedir. Görüşülen yazılım geliştiricilerin önemli bir bölümünün yeni çıkan yazılım geliştirme araçlarını kurup kullanmak istedikleri sonucuna ulaşılmıştır. Yazılım geliştiren organizasyonların çoğunun çevik yöntemler kullanmak istediği ancak bu süreçlerin iterasyon kayması ve kalite parametrelerinin bozulması gibi sebeplerden ötürü şikayetçi oldukları görülmüştür.</p>
+<p>Şirket, herhangi çevik yazılım sürecini seçerken hangi faktörlerin önemli olduğuna karar vermek istemektedir. Ancak, birçok süreç çerçevesi ve faktör olduğu göz önüne alınırsa deneme ve yanılma yaparak doğru sonuca ulaşmak mümkün olamamaktadır. Süreç değişimleri iyileştirme amaçlı yapılan ve çok sayıda kalite parametresini optimize etmesi zorlu görevlerdir. Şirket, (değişen) teknoloji, iş baskıları, müşteri beklentileri ve personel gibi kilit yönleri dengelemek adına çok boyutlu bir sorunla uğraşmaktadır. Ayrıca bu parametreler, zamanla proje ve süreçler içinde sürekli evirilerek karmaşıklığı arttıran baskın faktörlere dönüşebilmektedir. Yapığımız vaka çalışmalarında gözlediğimiz kadarıyla şirketler proje bazında edindikleri bilgi ve pratiklere dayanarak kendi süreçlerini inşa etme eğilimindedirler. Bu da aslında hiçbir yazılım metodolojisinin her boyutta iş ile birebir uyacak çözüm üretilemeyeceği ile ilgili bazı kanıtlar önermektedir. Bu çözüm projenin işlevsel olmayan gereksinimleri ile ilişkilendirebileceğimiz bazı faktörleri de göze alarak uygulanmaktadır. Ayrıca, yazılım geliştirme sürecinin seçilmesi sırasında bu faktörler dikkatlice incelenerek sürece olan etkileri incelenmelidir. Ancak hala günümüzde yazılım çerçevesi, model ve süreç yaratıcılarının tavsiyesine rağmen şirketler, hazır süreçleri projelere uygunluğunu değerlendirmeden seçmektedirler. Bu değişiklikler çoğunlukla iyi sonuç vermemektedir.</p>
+</section>
+<section id="bibliography" class="level1">
+<h1>Bibliography</h1>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 93%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>[1]</td>
+<td>M. Yilmaz, A software process engineering approach to understanding software productivity and team personality characteristics: an empirical investigation, Dublin: Dublin City University, 2013.</td>
+</tr>
+<tr class="even">
+<td>[2]</td>
+<td>J. Highsmith, Adaptive software development: a collaborative approach to managing complex systems., Addison-Wesley, 2013.</td>
+</tr>
+</tbody>
+</table>
+<aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Tüm firma bilgileri, güvenlik açısından ismi paylaşılmadan verilecektir.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</aside>
+</section>
+      </article>
+    </div>
+
+    <div class="cite" id="atıf">
+      <h2>Atıf</h2>
+      <p>Bu çalışmayı BibTeX formatında alıntılamak için:</p>
+      <pre><code>@misc{yilmaz_yazilim_surec,
+  author = {Yılmaz, Murat},
+  title = {Yazılım Süreç Değişimlerinin ulusal yazılım endüstrisine olan etkileri: Bir vaka çalışması},
+  note = {Ön baskı / Preprint},
+  language = {turkish},
+  url = {https://ymurat.github.io/makaleler/yazilim-surec-degisimi/docs/}
+}</code></pre>
+    </div>
+
+    <footer>
+      <p>Metin: tüm hakları yazara aittir; ön baskı olarak paylaşılmıştır.</p>
+    </footer>
+  </div>
+</body>
+</html>

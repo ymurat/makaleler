@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Systematic Investigation into the Use of Game Elements in Software Business Landscapes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .authors {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .affiliations {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+        
+        .venue {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+        
+        .published-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-size: 0.95rem;
+        }
+        
+        .published-info a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        main {
+            padding: 2rem;
+        }
+        
+        section {
+            margin-bottom: 2.5rem;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .abstract {
+            text-align: justify;
+            font-size: 1rem;
+        }
+        
+        .keywords {
+            font-style: italic;
+            margin-top: 1rem;
+        }
+        
+        .keywords strong {
+            font-style: normal;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .content {
+            text-align: justify;
+            font-size: 0.95rem;
+        }
+        
+        .content h3 {
+            color: #555;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content p {
+            margin-bottom: 1rem;
+        }
+        
+        .content ul {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        figure {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+        }
+        
+        figcaption {
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        table caption {
+            font-weight: 600;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+        }
+        
+        .bibtex {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            white-space: pre;
+        }
+        
+        .references {
+            font-size: 0.9rem;
+        }
+        
+        .references p {
+            margin-bottom: 0.8rem;
+            text-align: left;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>A Systematic Investigation into the Use of Game Elements in the Context of Software Business Landscapes: A Systematic Literature Review</h1>
+            
+            <div class="authors">
+                Serhan Olgun<sup>1,2</sup>, Murat Yilmaz<sup>1,2</sup>, Paul Clarke<sup>3,4</sup>, Rory V. O'Connor<sup>3,4</sup>
+            </div>
+            
+            <div class="affiliations">
+                <sup>1</sup>Çankaya University, Department of Computer Engineering, Turkey<br>
+                <sup>2</sup>Virtual Reality Research Laboratory, Çankaya University, Turkey<br>
+                <sup>3</sup>School of Computing, Dublin City University, Ireland<br>
+                <sup>4</sup>Lero – the Irish Software Research Centre
+            </div>
+            
+            <div class="venue">
+                Software Process Improvement and Capability Determination (SPICE 2017)
+            </div>
+            
+            <div class="published-info">
+                <strong>Published version:</strong> Springer Communications in Computer and Information Science<br>
+                DOI: <a href="https://doi.org/10.1007/978-3-319-67383-7_28" target="_blank">10.1007/978-3-319-67383-7_28</a><br>
+                Pages: 384–398, 2017
+            </div>
+        </header>
+        
+        <main>
+            <section>
+                <h2>Abstract</h2>
+                <div class="abstract">
+                    <p>The software development process is a set of socio-technical activities to produce software artifacts in which humans play a crucial role. Since it is a people centric activity, factors such as user motivation, engagement, communication and collaboration might constrain these activities. Therefore, software business organizations stand to benefit from adopting different tools and methods in order to overcome these obstacles and to improve their software business processes. Research has been made to increase software quality and enhance the software development process. Alongside these studies, innovative techniques and concepts are beneficial. As a solution, the notion of gamification (i.e. employing game elements in non-gaming contexts) has been introduced to enhance the software development process and overcome the challenges mostly related to human factors. However, the applicability of game elements in the context of software business landscapes is still a controversial issue and not totally proven as of yet. Numerous studies have been conducted to examine the benefits of gamification and how game elements affect the software development process. Thus, in this paper, a systematic literature review was conducted in order to investigate the application of game elements both in research and industrial levels of software development and as well as in software business landscapes.</p>
+                </div>
+                <div class="keywords">
+                    <strong>Keywords:</strong> gamification, software development, game elements, systematic review
+                </div>
+            </section>
+            
+            <section>
+                <h2>Download</h2>
+                <a href="paper.pdf" class="download-btn" download>📄 Download PDF</a>
+            </section>
+            
+            <section>
+                <h2>Full Text</h2>
+                <div class="content">
+                    <h3>1 Introduction</h3>
+                    <p>Software development organizations are professional business firms, which are founded so as to develop high quality software products that satisfy the customer expectations and their business objectives. In these organizations, valuable robust and reliable software products are produced as a result of the development teams following an appropriate development process. Software product development may require an extensive development process, which includes analysis, development, testing and maintenance steps. Yilmaz states that [1, pp. 1] "<em>A software development process is considered as the coordination of structural social activities (e.g. management, production and maintenance) coupled and constrained with a set of individuals' (i.e. participants who perform the activities) roles and skills for producing software artifacts in a predefined productivity level</em>". Theoretically, software development process is an organized structure that has consecutive steps to produce software applications. This process is performed by small, medium or large-scaled experienced software development teams by communicating with their customers in software business companies. In other words, software development is a teamwork that requires quite effective people involvement, engagement, collaboration and motivation to accomplish the process steps, so it concerns both software developers and customers.</p>
+                    
+                    <p>Since it is a human centric activity, in the course of proceedings some obstacles may occur to achieve the goals. Human factors (e.g. user motivation, engagement, communication and collaboration) are major parameters for the success of the development process. This can be investigated by understanding the human role in the software development. Individuals can affect the complexity process by being a stakeholder (e.g. customer, developer or manager, etc.) and ultimately the quality of a software product. The following are just some of <em>the common reasons</em> for why these problems occurred during software production: (i) lack of communication among team members that causes collaboration problems, (ii) misunderstood of business requirements and objectives from customer, (iii) late performance evaluation, (iv) lack of reward systems by the management and (v) software practitioners with insufficient technical experiences [19].</p>
+                    
+                    <p>With respect to the state of the art as described the idea is to use game elements to engage, motivate, train and monitor all the employees [20] to make them passionate to involve them in the whole development process in the context of software business landscapes. The gamification broadens a new horizon almost all areas in the non-game contexts. Its description has been made with the following statement: "<em>gamification is the use of game design elements in non-game contexts</em>." [4, pp. 2]. In gamified contexts, a rewarding mechanism frequently exists to encourage people and excite people's attention to increase the engagement. If gamification applied to the software development it might bring several advantages. From employee perspective, because of its rewarding mechanism to increase engagement, awareness, motivation and collaboration issues. From managers' perspective, it may also have advantages for the performance management to monitor the development team members.</p>
+                    
+                    <p>The application of game elements in the context of software business landscapes is still not an obvious issue and needs research and experiments on it. Therefore, this study investigates the applicability of the use of game elements in the context of software business landscapes and how these game elements affects the quality of software development in software business landscapes in order to overcome the challenges in the software industry.</p>
+                    
+                    <p>The purpose of this research is to investigate the use of game elements in the context of software business landscapes. To summarize, this paper aims to address the following research questions: <strong>i)</strong>. What is currently known about people's motivation, engagement and performance issues of software development process? <strong>ii)</strong>. Which game elements and gamification approaches can be applied into software business landscapes to increase the quality and performance of software development? <strong>iii)</strong>. What are the examples of these approaches for the software industry? <strong>iv).</strong> How these approaches affect the quality of software development in software business context?</p>
+                    
+                    <p>The paper is structured as follows: Section 2 presents background information about gamification and software development process. Section 3 presents the research methodology about how the systematic literature review was planned. Section 4 presents the analysis and results that are obtained from the study. Section 5 discusses the future work and concludes the paper.</p>
+                    
+                    <h3>2 Background</h3>
+                    <p>In this section background information about the related topics will be presented. In first, we provide brief information about gamification.</p>
+                    
+                    <h3>2.1 Gamification</h3>
+                    <p>The term gamification is defined in [4, pp. 2] as "<em>using game design elements in non-game contexts to motivate and increase user activity and retention</em>". As it is clearly stated in its definition gamification uses game design elements to gamify environments and ultimately aims to change people's behavior in positive manner and keep engaged and motivated them in particular tasks in non-gaming environments such as workplaces, schools or in software development organizations. By the increase in the application of real life examples of gamification in different domains, the popularity and usage of it has been growth in the last years. One of the domains where gamification is popular is education and mostly for training purposes [7]. The goal is to increase the motivation, engagement and productivity of students. Gamification has also been used to maximize the user engagement and keep user motivated by entrepreneurs, customer oriented web site owners [8]. StackOverflow [9] is a good an example where the game elements are intensely used. This web site is a knowledge exchange system for developers where users take badges or performance rates according to their activities in particular actions. Because of its effectiveness and efficiency, game design elements have also been applied in business environments to improve employee's performance while they accomplish their tasks and works [10].</p>
+                    
+                    <h3>2.2 Gamification and Software Development Process</h3>
+                    <p>This study focuses on the applicability of the gamification in software business landscapes and how these game elements affect the quality of software development process in software business landscapes in order to overcome the challenges in the software industry. Thus, this makes gamification a promising field to overcome the challenges related to human factors such as people involvement, engagement, collaboration and motivation throughout software development process. Due to the above stated reasons, some software development process tools have started to integrate to game elements to benefit from gamification principles. Visual Studio Achievements [11], JIRA Hero [12], PropsToYou [13], ScrumKnowsy [14], MasterBranch [15], RedCritter [16] are examples of commercial tools that are offering gamification in software development landscapes. Therefore, researchers and practitioners recognized that the game elements could be applied to the software business landscapes. However, the applicability of this issue is not obvious so it needs some research on it. Thus, a lot of proposals and academic researches about the topic have been published. In this paper, a research approach is proposed for understanding all following effects to improve the quality of a software development process by conducting a systematic literature review.</p>
+                    
+                    <h3>3 Research Methodology</h3>
+                    <p>We conduct a Systematic Literature Review (SLR) to identify a group of papers that discuss the application of game elements in software development landscapes. A systematic literature review is a research methodology to find out what we know and what we do not know based on the focused research questions. "<em>As a research area matures there is often a sharp increase in the number of reports and results made available, and it becomes important to summarize and provide overview</em>." [2, pp. 1] Therefore, systematic literature reviews should certainly contain the question that it tries to answer and should report fully on the methods that have been utilized. According to Kitchenham, "<em>Systematic Literature Review is a means of identifying, evaluating and interpreting all available research relevant to a particular research question, or topic area, or phenomenon of interest.</em>" [3, pp. 1] As described, the word systematic stands for planned, methodical acting and review stands for critical appraisal of works.</p>
+                    
+                    <p>This planned and methodical literature review is conducted by carrying out these steps. The Figure 1 shows the Systematic Literature Review process and steps. These steps are briefly explained below:</p>
+                    
+                    <ul>
+                        <li><strong>Planning:</strong> It is the first step of the review where the need for review needs to be identified, research questions are identified, and a review protocol is developed and evaluated.</li>
+                        <li><strong>Conducting:</strong> It is the second step of the review which includes the following sub steps: Primary study selection, the data extraction, study quality assessment, and the data synthesis where the obtained data are synthesized.</li>
+                        <li><strong>Documenting:</strong> It is the last step of the review to report the dissemination of information by drawing a conclusion and considering threats.</li>
+                    </ul>
+                    
+                    <figure>
+                        <img src="media/image1.png" alt="Systematic Literature Review Steps">
+                        <figcaption>Fig. 1: Systematic Literature Review Steps (Adapted from [6])</figcaption>
+                    </figure>
+                    
+                    <p>Hence, the systematic literature review is used to review the primary studies to find out the answers about the research questions and observe the results. As Petersen [2] states SLR uses existing studies related to research topic describes the context and summarize the results. Kitchenham [6, pp. 3] explains the reasons why systematic literature review is conducted:</p>
+                    
+                    <ul>
+                        <li>"To summarize the existing evidence concerning a treatment or technology e.g. to summarize the empirical evidence of the benefits and limitations of a specific agile method.</li>
+                        <li>To identify any gaps in current research in order to suggest areas for further investigation.</li>
+                        <li>To provide a framework/background in order to appropriately position new research activities."</li>
+                    </ul>
+                    
+                    <p>By this systematic literature review the existing proposals and research works for applying game elements into software development process in software business landscapes are determined, analyzed and classified to attempt to answer the questions and report them clearly for future research. While conducting this review, recommendations in [3, 17] are followed to make the review better and decide the best solution for the investigation. This section continues with describing search strategy and definition of research questions, identification of inclusion and exclusion criteria, searching relevant studies, extracting data and, at the end, synthesis of the study.</p>
+                    
+                    <h3>3.1 Research Questions, Data Sources and Search Strategy</h3>
+                    <p>Depending on the systematic literature review principles [3], in this step, some research questions are established for this study to find answers from existing research work and proposals related to application of game elements to software development process in the context of software business landscapes. Research questions are related to applicability of the use of game elements in the context of software business landscapes and how these game elements affect the quality of software development in software business landscapes in order to overcome the challenges in the software industry. Different perspectives for applying game elements into software business landscapes are considered and associated with each research question separately. The research questions and their aims for this systematic review are described in Table 1.</p>
+                    
+                    <table>
+                        <caption>Table 1. Aim of the Research Questions for the Systematic Review</caption>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Question</th>
+                                <th>Aim</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>RQ1</td>
+                                <td>What is currently known about people's motivation, engagement and performance issues of software development process?</td>
+                                <td>To identify which factors affects the people's motivation, engagement and performance during the software development process.</td>
+                            </tr>
+                            <tr>
+                                <td>RQ2</td>
+                                <td>Which game elements and gamification approaches can be applied into software business landscapes to increase the quality and performance of software development?</td>
+                                <td>To determine which game elements and gamification approaches can be applied to software business landscapes to enhance the success stories by increasing the quality and performance of software development.</td>
+                            </tr>
+                            <tr>
+                                <td>RQ3</td>
+                                <td>What are the examples of these approaches for the software industry?</td>
+                                <td>To show the applied approaches in the software industry.</td>
+                            </tr>
+                            <tr>
+                                <td>RQ4</td>
+                                <td>How these approaches affect the quality of software development in software business context?</td>
+                                <td>To determine which approaches remedy the software development process quality.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>These research questions are going to be guide for the data extraction phase and it helps to avoid reading full text of current research works related to the review. By the help of the research question that are stated above we focused on how game elements and mechanics remedy to increase the quality of software development process. During this review we reviewed the current research works and inspected how they focus on the gamification and software development process. Moreover, we observed other papers' proposals and approaches to find the efficient and effective solutions. For example, Research Question 1 (RQ1) focuses on investigation of identification for which factors affects the people's motivation and performance during the software development while Research Question 2 (RQ2) focuses on which game elements and gamification approaches or game elements such as badges, points award mechanisms can be applied to software business landscapes to enhance the success stories and increase the motivation of the people of the software development process. In Research Question 3 (RQ3) we identified the real life examples that adopts the gamification technique to their software development process. And finally, in Research Question 4 (RQ4) we observed how these approaches affect the quality of software development process in the industry. To get a clear picture of current research and to find the answers to research questions, popular and reliable data sources are used to carry out this review. The search strategy included the academic electronic databases and Google Search is used for including extra publications and contributions for this study. The following academic electronic databases are used in this review:</p>
+                    
+                    <ul>
+                        <li>Çankaya University Electronic Database</li>
+                        <li>IEEE Explore</li>
+                        <li>Science Direct</li>
+                        <li>Access Engineering</li>
+                        <li>ACM Digital Library</li>
+                        <li>SpringerLink Journals</li>
+                    </ul>
+                    
+                    <p>To find the answers to conduct this review using the electronic data sources some special combinations, keywords and search strings are designed. To design the search strings, the following keywords are used as major terms: Software Development Process and Game Elements. This search string is designed according to steps which are stated in [18] and all these terms related to this review topic is combined using Boolean AND or OR operator to retrieve the articles that are only related to this topic. The search string that is used in this review study is indicated in Table 2.</p>
+                    
+                    <table>
+                        <caption>Table 2. Search strings for this Systematic Literature Review</caption>
+                        <thead>
+                            <tr>
+                                <th>Major Terms</th>
+                                <th>Alternative Terms</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Software Development Process</td>
+                                <td>((software development) OR (software engineering) OR (software process) OR (software development phases) OR (software development lifecycle) OR (software planning) OR (software testing) OR (software analysis) OR (software maintenance) OR (software design) OR (software quality) OR (software configuration management) OR (software validation) OR (software verification)) AND</td>
+                            </tr>
+                            <tr>
+                                <td>Game Elements</td>
+                                <td>((gamification) OR (gamifying) OR (gamify) OR (gamification mechanisms) OR (game mechanics))</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>These keywords and search strings are built up based on the research questions to get as many papers possible. Also, the alternative keywords and terms are added to major terms (shown in Table 2. Search strings for this Systematic Literature Review) to retrieve and cover more papers from the stated electronic databases. These search strings are applied to title, abstract and keywords to get the results. The Table 3 is presented to summarize the search strategy which is described above.</p>
+                    
+                    <table>
+                        <caption>Table 3. Search Strategy for this study</caption>
+                        <thead>
+                            <tr>
+                                <th colspan="2">Category</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Data Source</td>
+                                <td>Academic Search:</td>
+                                <td>
+                                    <ul>
+                                        <li>Çankaya University Electronic Database</li>
+                                        <li>IEEE Explore</li>
+                                        <li>Science Direct</li>
+                                        <li>Access Engineering</li>
+                                        <li>ACM Digital Library</li>
+                                        <li>SpringerLink Journals</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Non-Academic Search</td>
+                                <td>
+                                    <ul>
+                                        <li>Standard Google Search Engine</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Items</td>
+                                <td>
+                                    <ul>
+                                        <li>Academic Papers</li>
+                                        <li>Academic Publications</li>
+                                        <li>Journals, Book Sections</li>
+                                        <li>Conference Papers</li>
+                                        <li>Online academic publications</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Search Applied to</td>
+                                <td>
+                                    <ul>
+                                        <li>Title, Abstract, Keywords</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Language</td>
+                                <td>
+                                    <ul>
+                                        <li>Only written in English</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Publication between</td>
+                                <td>
+                                    <ul>
+                                        <li>2010 – 2017</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>3.4 Study Selection Criteria</h3>
+                    <p>Study selection criteria describe the inclusion and exclusion standards whether to include or not the existing research works and proposals depending on the research questions, search string and strategy when conducting a systematic literature review. Therefore, a search result must meet the constraints that are defined in inclusion and exclusion standards. Thus, the inclusion standards include the search result whereas the exclusion standards eliminate the search result in the review.</p>
+                    
+                    <p>The inclusion and exclusion criterion need to be defined to increase to more reliable results and decrease the risk to stray away from the topic. In other words, study selection criteria are designed and used for processioning for the review. Thus, this enables other researchers to rework by carrying out review using the same standards. When defining the study selection standards some criterion should be followed. The inclusion criteria should not be too general or too strict. When it is too general, the poor quality studies may be included and it affects the final results. On the other hand, when it is too strict, the entire related studies might not be presented in the final result. For this study, the inclusion standards are defined to get clear and reliable results. Studies are eligible for inclusion in the review if they presented empirical data on software development that are used game elements in their business context. In addition, the studies which are related to human factors (e.g. user motivation, engagement and collaboration, etc.) in software development are included to study selection criteria. Therefore, only academic papers and publications, professional forums and contributions such as conferences, online publications and book sections which related to this review domain are included to inclusion standards. Moreover, publications between 2010 and 2017 and only written in English is considered as the part of inclusion standards. On the other hand, according to search results from search strings, the search results including irrelevant data are excluded for this systematic review. Also, non–academic results, people opinions, personal blogs and personal web pages from the search results are excluded for this study. The review also excluded the academic results that meet the following criterion: duplicate papers that are retrieved from different databases, the papers available with only its abstracts, papers related to gamification of other domains (education, health, etc.)</p>
+                    
+                    <p>The Table 4 presents the study selection criteria that are used in the review.</p>
+                    
+                    <table>
+                        <caption>Table 4. Study Selection Criteria</caption>
+                        <thead>
+                            <tr>
+                                <th>Criteria Type</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Inclusion Criteria</td>
+                                <td>
+                                    <ul>
+                                        <li>Results including the relevant data</li>
+                                        <li>Academic Papers</li>
+                                        <li>Academic Publications</li>
+                                        <li>Journals</li>
+                                        <li>Book Sections</li>
+                                        <li>Conference Papers</li>
+                                        <li>Online academic publications</li>
+                                        <li>Papers written in English</li>
+                                        <li>Publications between 2010 and 2017.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Exclusion Criteria</td>
+                                <td>
+                                    <ul>
+                                        <li>Main focus is not related gamification in software development process and human factors in software development process.</li>
+                                        <li>Papers available only with its abstracts</li>
+                                        <li>Duplicate papers retrieved from different databases.</li>
+                                        <li>Non-academic publications</li>
+                                        <li>Magazines, Personal web pages and blogs, Personal opinions.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Exclusion Criteria for full text</td>
+                                <td>
+                                    <ul>
+                                        <li>Papers related to gamification of other domains (education, health, etc.)</li>
+                                        <li>Papers included the summary of conference notes.</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>4 Results</h3>
+                    <p>We made our research using systematic literature review methodology by following the recommendations that are explained in [3, 17]. In first we developed search strings, identified data sources and decided study selection criteria, which are described in detail in Section 3. At the end, by following this search strategies we accessed and examined a lot of research work extracted the irrelevant data related to topic and collect the results to address the research questions. Table 5 shows the search results of each steps of the review process. As a result, number of 12 studies were obtained and these primary studies are listed in Appendix A section.</p>
+                    
+                    <table>
+                        <caption>Table 5. The results obtained</caption>
+                        <thead>
+                            <tr>
+                                <th>Step</th>
+                                <th>Process</th>
+                                <th>Number of Papers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Step 1</td>
+                                <td>Search, obtain data</td>
+                                <td>1093</td>
+                            </tr>
+                            <tr>
+                                <td>Step 2</td>
+                                <td>Data extraction, reading keywords, title or abstract parts</td>
+                                <td>64</td>
+                            </tr>
+                            <tr>
+                                <td>Step 3</td>
+                                <td>Reading full text paper</td>
+                                <td>33</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>4.1 Analysis Results of Research Questions</h3>
+                    <p>In this section we made an analysis to answer the research questions using the data that we obtained while conducting this review.</p>
+                    
+                    <table>
+                        <caption>Table 6. Analysis Results</caption>
+                        <thead>
+                            <tr>
+                                <th>Research Questions</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Research Question 1 (RQ1): <em>What is currently known about people's motivation, engagement and performance issues of software development process?</em></td>
+                                <td>User involvement plays a crucial role in software development process Therefore; the lack of user involvement affects the software development process in negative manner. Efficient and effective user involvement and user engagement requires high motivational aspects to increase the performance issues related to human factors. [A3] and [A12] propose that using game elements and mechanics increases the user involvement by increasing the user motivation, engagement and collaboration issues. As performance issues considered in software development, an explicit analysis is a key factor. Therefore, in their proposals in [A12] collaborative environment with team members and also stakeholders are important for better understanding to produce a well-understood software product. To build a collaborative environment this study proposes to use game elements such as ranking systems and badges. In [A3] researchers show the reward mechanism in software development to increase performance.</td>
+                            </tr>
+                            <tr>
+                                <td>Research Question 2 (RQ2): <em>Which game elements and gamification approaches can be applied into software business landscapes to increase the quality and performance of software development?</em></td>
+                                <td>We use this research question to determine which game elements and gamification approaches can be applied into the software development process in software business landscapes to enhance the success stories by increasing the quality and performance of software development. We classify and examine the primary studies that are about using game elements and mechanics. High-level motivation of team members causes to increase the quality of software development. In [A7], using game elements (rankings, badges, etc.) strengthens motivation of people; thus, it fosters to increase the quality and performance of software development. Human related issues affect the quality and performance of development process. In [A10], researchers propose that using game elements as a solution to fix the human related obstacles maximizes the quality of development process. Moreover, according to the analysis [5, 21, 22] that we made, we identify the following game elements and mechanics [A1], [A2] [A4], [A8], [A11] that may be applied into the software business landscapes to increase the quality and performance of software development process.
+                                    <ul>
+                                        <li>Rankings</li>
+                                        <li>Badges</li>
+                                        <li>Levels</li>
+                                        <li>Quests</li>
+                                        <li>Awards, Point Based Reward Systems</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Research Question 3 (RQ3): <em>What are the examples of these approaches for the software industry?</em></td>
+                                <td>We choose this research question to show and exemplify the applied approaches in the software industry. In this research question, we focused on the real-life examples in which gamification elements are used. In [A3] they present an online gamified tool which mainly uses reward mechanism as a game element to conduct the requirement elicitation process. Results show that it has positive impacts on people such as increasing motivation, engagement and collaboration. In [A4], the usage of gamification elements increases motivation and performance of the team members in Visual Studio platform. Also in [A4], they show the positive impacts of gamification on software development process by presenting real-life gamified applications which are <em>iThink</em> (for requirement), <em>CodeHunt</em> and <em>Visual Studio Achievements</em> (for software development) and <em>Microsoft Language Quality Game</em> (for testing). All these approaches have positive impacts on development process. Therefore, we have observed that some glorious version tools and source controls as JIRA [11], RedCitter [12], Visual Studio Achievements [16] in the industry. These examples use some basic game elements such as badges, levels and award mechanisms so as to monitor and evaluate the performance of each team member. Hereby the most productive team member could be determined and may also rewarded.</td>
+                            </tr>
+                            <tr>
+                                <td>Research Question 4 (RQ4): <em>How these approaches affect the quality of software development in software business context?</em></td>
+                                <td>We choose this research question to determine which approaches remedy the software development process quality. Software development process requires people involvement, user engagement, collaboration and motivation. In [A3] and [A12] it is stated that gamification in software development overcome the user involvement problem. In [A12], gamification provides a collaborative environment by voting and ranking mechanisms. In [A9], they present a case study in which gamification is applied. From the results, they claim that applying game elements increases the performance of software development actors so it enriches the quality of development process. In [A1], [A4] and [A11] using game elements such as rewarding mechanism increases the performance and quality of the development process. Dorling and McCaffery [A6], argue that the adoption of gamification in software development causes the process quality improvement. In their example [A5] using gamification dynamics in a bug tracking system overcomes the human factors and increases quality of software development process.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h3>5 Conclusion</h3>
+                    <p>In this paper, we conducted a systematic literature review to classify and characterize the state of the art as regarding applying game elements into software development process. Firstly, we made a deep literature research by using the search strings that we developed at the beginning of the literature review to address each research questions to reach the goal. After we accessed data sources to show the applicability of gamification into software development process we performed a data inclusion and exclusion process to reach the goal. After this process, we classified primary studies according to their properties, which were their process areas, kind of game elements and mechanics that are applied in their studies and further discussed their effects. Moreover, we analyzed some empirical evidences (i.e. real life examples) to see the impacts of game elements on user motivation, engagement and collaboration to encourage the business organization to replace the current development process with the proposed methodology.</p>
+                    
+                    <p>The results that we obtained from our preliminary investigation on applying game elements into software business landscapes provides a basic guidance for the software development organizations which aims to benefit from gamification. At the beginning of this literature review, we envisioned that using gamification in software development process should reduce the problems related to human factors (e.g. user motivation, engagement and collaboration, etc.). Thus, the results that we obtained from our research confirmed that using game element in this area supports our expectations. In addition, our results suggest that using gamification in software development increases the user motivation, engagement and collaboration. It also proves that it improves the software development process in terms of quality and performance, which creates a potential to resolve some obstacles related to human factors [5,21,22]. However, most of the studies that we analyzed show that there are some gaps in the areas such as project management and team configuration. In studies based on real life examples [23,24,25], the adoption of gamification approach into software development process provides some concrete but preliminary evidence. Therefore, it shows that it can be partially adopted into software development from a software management perspective.</p>
+                    
+                    <p>Moreover, from the analyzed results, we have observed that applying game elements into other business domains such as marketing, education is going faster than software development. However, our results suggest that if the number of proposals, empirical studies and evidence increases for the adoption of gamification into software development to make the whole process better, it may complement the existing ecosystem of software development process.</p>
+                    
+                    <h3>Appendix A</h3>
+                    <p><strong>[A1]</strong> Yilmaz, M., Yilmaz, M., O'Connor, R., Clarke, P. A gamification approach to improve the software development process by exploring the personality of software practitioners. In: Clarke, Paul and O'Connor, Rory and Rout, Terry and Dorling, Alec, (eds.) Software Process Improvement and Capability Determination. Communications in Computer and Information Science, 609. Springer, pp. 71-83. ISBN 978-3-319-38980-6</p>
+                    
+                    <p><strong>[A2]</strong> Kosa, M., Yilmaz, M. Designing Games for Improving the Software Development Process. Systems, Software and Services Process Improvement, 22nd European Conference, EuroSPI 2015, vol. 543, pp. 303–310, 2010.</p>
+                    
+                    <p><strong>[A3]</strong> Fernandes J., Duarte, D., Ribeiro, C., Farinha, C., Pereira, J. Madeiras, and Mira da Silva, M. "iThink: A Game-Based Approach Toward Improving Collaboration and Participation in Requirement Elicitation," Procedia Computer Science, vol. 15, pp. 66–77, 2012.</p>
+                    
+                    <p><strong>[A4]</strong> Lombriser, Philipp and Valk, Ronald van der. Improving the Quality of the Software Development Lifecycle with Gamification. Department of Information and Computing Sciences, Utrecht University.</p>
+                    
+                    <p><strong>[A5]</strong> S. Tomasso Dal, M. Andrea, L. Michele, M. Ebrisa. How to Gamify Software Engineering. 2017 IEEE 24th International Conference on Software Analysis, Evolution and Reengineering (SANER), 261 – 271.</p>
+                    
+                    <p><strong>[A6]</strong> Dorling, A., McCaffery, F., "The gamification of SPICE," Communications in Computer and Information Science, vol. 290, pp. 295–301, 2012.</p>
+                    
+                    <p><strong>[A7]</strong> Herranz, E., Palacios, R. C., de Amescua Seco, A., & Yilmaz, M. (2014). Gamification as a Disruptive Factor in Software Process Improvement Initiatives. J. UCS, 20(6), 885-906.</p>
+                    
+                    <p><strong>[A8]</strong> Yilmaz, M., O'Connor, R., Collins, J. Improving software development process through economic mechanism design. In: 17th European Software Process Improvement Conference, 1-3 Sept 2010, Grenoble, France. ISBN 978-3-642-15666-3</p>
+                    
+                    <p><strong>[A9]</strong> Passos, Erick B, Danilo B Medeiros, Pedro AS Neto and Esteban WG Clua. Turning Real-World Software Development into a Game. Games and Digital Entertainment (SBGAMES), 2011 Brazilian Symposium on, IEEE. 2011.</p>
+                    
+                    <p><strong>[A10]</strong> Yilmaz, M and O'Connor, R. (2010) Maximizing the value of the software development process by game theoretic analysis. In: 11th International Conference on Product Focused Software, 21-23 Jun 2010, Limerick, Ireland. ISBN 978-1-4503-0281-4</p>
+                    
+                    <p><strong>[A11]</strong> A. A. de Melo, M. Hinz, G. Scheibel, C. D. M. Berkenbrock, I. Gasparini, and F. Baldo, "Version Control System Gamification: A Proposal to Encourage the Engagement of Developers to Collaborate in Software Projects," presented at the Proceedings of the 6th Int. Conf. on Social Computing and Social Media (SCSM'2014).</p>
+                    
+                    <p><strong>[A12]</strong> D. Duarte, C. Farinha, M. M. da Silva, and A. R. da Silva, "Collaborative Requirements Elicitation with Visualization Techniques," presented at the Proceedings of the IEEE 21st International Workshop on Enabling Technologies: Infrastructure for Collaborative Enterprises (WETICE'12), 2012.</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>References</h2>
+                <div class="references">
+                    <p>1. M. Yilmaz, "A Software Process Engineering Approach to Understanding Software Productivity and Team Personality Characteristics: An Empirical Investigation", PhD Thesis, Dublin City University (January 2013)</p>
+                    
+                    <p>2. K. Petersen, R. Feldt, S. Mujtaba, M. Mattsson, Systematic mapping studies in software engineering, in: Proceedings of the 12th International Conference on Evaluation and Assessment in Software Engineering (EASE'12), 2008, pp. 68–77</p>
+                    
+                    <p>3. B. Kitchenham, "Procedures for Performing Systematic Reviews", Joint Technical Report Software Engineering Group, Department of Computer Science Keele University, United King and Empirical Software Engineering, National ICT Australia Ltd, Australia, 2004</p>
+                    
+                    <p>4. S. Deterding and R. Khaled. Gamification: Toward a Definition. In CHI '11 Gamification Workshop. ACM, 2011.</p>
+                    
+                    <p>5. S. Deterding, D. Dixon, R. Khaled, L. Nacke, From game design elements to gamefulness: defining gamification", in: Proceedings of the 15th International Academic MindTrek Conference, Envisioning Future Media Environments (MindTrek'11), 2011, pp. 9–15</p>
+                    
+                    <p>6. B. Kitchenham and S. Charters, "Guidelines for performing systematic literature reviews in software engineering," Software Engineering Group, Keele University and Department of Computer Science, University of Durham, United Kingdom, Technical Report EBSE-2007-01, 2007.</p>
+                    
+                    <p>7. K.M. Kapp, The Gamification of Learning and Instruction, Pfeiffer, 2012.</p>
+                    
+                    <p>8. J. Currier, Gamification: Game Mechanics is the New Marketing, OogaLabs Blog, 2008.</p>
+                    
+                    <p>9. StackOverflow. http://stackoverflow.com.</p>
+                    
+                    <p>10. M. Hugos, Enterprise Games: Using Game Mechanics to Build a Better Business, O'Reilly, 2012</p>
+                    
+                    <p>11. Visual Studio Achievements, Retrieved July 19, 2017, from https://channel9.msdn.com/achievements/visualstudio</p>
+                    
+                    <p>12. Atlassian, JIRA Hero. Retrieved July 19, 2017, from https://marketplace.atlassian.com/plugins/com.madgnome.jira.plugins.jirachievements.</p>
+                    
+                    <p>13. PropsToYou, Retrieved July 19, 2017, from https://www.propstoyou.com.au/</p>
+                    
+                    <p>14. ScrumKnowsy, Retrieved July 19, 2017, from http://www.scrumknowsy.com/</p>
+                    
+                    <p>15. Masterbranch. Retrieved July 19, 2017, from http://masterbranch.com/</p>
+                    
+                    <p>16. RedCritter, Retrieved July 19, 2017, from http://www.redcritter.com/</p>
+                    
+                    <p>17. B.A. Kitchenham, D. Budgen, O. Pearl Brereton, Using mapping studies as the basis for further research – a participant–observer case study, Inf. Softw. Technol. 53 (2011) 638–651 (06/01/2011).</p>
+                    
+                    <p>18. P. Brereton, B. Kitchenham, D. Budgen, M. Turner, M. Khalil, Lessons from applying the systematic literature review process within the software engineering domain, J. Syst. Softw. (2007) 571-583</p>
+                    
+                    <p>19. T. Tsumaki and T. Tamai, "Framework for matching requirements elicitation techniques to project characteristics," Softw. Process Improv. Pract., vol. 11, no. 5, pp. 505–519, 2006</p>
+                    
+                    <p>20. M. Herger, Enterprise Gamification: Engaging people by letting them have fun (Volume 1), 1st ed. CreateSpace Independent Publishing Platform, 2014</p>
+                    
+                    <p>21. R. Paharia, Loyalty 3.0: How to Revolutionize Customer and Employee Engagement with Big Data and Gamification, McGraw-Hill, 2013.</p>
+                    
+                    <p>22. K. Werbach, D. Hunter, For the Win: How Game Thinking Can Revolutionize Your Business, Wharton Digital Press, 2012.</p>
+                    
+                    <p>23. Aydan, U., Yilmaz, M., Clarke, P., O'Connor, R.V.: Teaching ISO/IEC 12207 software lifecycle processes: A serious game approach. Computer Standards and Interfaces journal, 54(3), pp. 129-138</p>
+                    
+                    <p>24. Kosa, M., Yilmaz, M., O'Connor, R.V., Clarke, P.: Software Engineering Education and Games: A Systematic Literature Review. In: Journal of Universal Computer Science, 22(11), pp.1558-1574 (available online).</p>
+                    
+                    <p>25. Yilmaz, M., Yilmaz, M., O'Connor, R.V., Clarke, P.: A Gamification Approach to Improve the Software Development Process by Exploring the Personality of Software Practitioners. In: Proceedings of the 16th International Conference on Software Process Improvement and Capability dEtermination (SPICE 2016)</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>BibTeX</h2>
+                <div class="bibtex">@inproceedings{Olgun2017Gamification,
+  title     = {A Systematic Investigation into the Use of Game Elements in the Context of Software Business Landscapes: A Systematic Literature Review},
+  author    = {Olgun, Serhan and Yilmaz, Murat and Clarke, Paul and O'Connor, Rory V.},
+  booktitle = {Software Process Improvement and Capability Determination},
+  series    = {Communications in Computer and Information Science},
+  year      = {2017},
+  pages     = {384--398},
+  publisher = {Springer International Publishing},
+  doi       = {10.1007/978-3-319-67383-7_28},
+  note      = {Published in Springer CCIS, SPICE 2017}
+}</div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>A Systematic Investigation into the Use of Game Elements in Software Business Landscapes</p>
+            <p>SPICE 2017 | Springer CCIS</p>
+        </footer>
+    </div>
+</body>
+</html>

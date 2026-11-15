@@ -1,0 +1,227 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science, version 1.1
+\documentclass{llncs} 
+%\documentstyle{llncs}
+%
+\usepackage{graphicx}
+
+%\usepackage[none]{hyphenat}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+\pagestyle{empty}
+
+\usepackage{listings}
+
+
+
+\begin{document}
+
+
+%\title{Validity and Reliability of A Personality Questionnaire Developed to Assess Software Practitioners}
+
+%\title{Exploring Personality Types of the Individuals Involved in the Software Development Process}
+
+
+\title{Overcoming Public Speaking Anxiety of Software Engineers using Virtual Reality Exposure Therapy}
+
+%Yazılım geliştiren organizasyonlar için kişilik tipi ölçümü ve uyumuna dayanan bir personel tavsiye sistemi.
+
+%\subtitle{Validity and Reliability of a Personality Questionnaire}
+
+\author{Merve Denizci Nazligul\inst{1,3}, Murat Yilmaz\inst{2,3}, Ulas Gulec\inst{2,3}, Mert Ali Gozcu\inst{2,3} Rory V. O'Connor\inst{4,5} and Paul Clarke\inst{4,5} }
+
+\institute{Department of Psychology, \c{C}ankaya University, Turkey 
+%\linebreak
+\and
+%\and
+Department of Computer Engineering, \c{C}ankaya University, Turkey 
+\and
+Virtual Reality Research and Development Laboratory, \c{C}ankaya University, Turkey 
+\and
+School of Computing, Dublin City University, Ireland 
+\and
+Lero, the Irish Software Engineering Research Center
+}
+
+
+
+\newenvironment{keywords}{
+       \list{}{\advance\topsep by0.35cm\relax\small
+       \leftmargin=1cm
+       \labelwidth=0.35cm
+       \listparindent=0.35cm
+       \itemindent\listparindent
+       \rightmargin\leftmargin}\item[\hskip\labelsep
+                                     \bfseries Keywords:]}
+     {\endlist}
+
+
+\maketitle
+
+\begin{abstract}
+
+%Public speaking anxiety is a type of social phobia, which might commonly seen in novice software engineers. It is usually triggered by a fear of social performance especially when performer is unfamiliar with the audience. Today, many software engineering activities (e.g. code inspection, peer review, daily meetings, etc.) requires social gatherings where individuals need to present their works. However, novice software engineers may not able reduce their performance anxiety during their course of education. In this study, we propose a virtual reality approach to construct a practice environment for improving novice software engineers' pubic speaking experiences. Consequently, we examine the effects of virtual reality exposure intervention on public speaking activities of the six novice software engineers from a computer engineering department. A virtual classroom similar to the class in which the members of experimental group are trained was designed. They were expected to make presentations. As consistent with the literature, the results obtained from this study illustrate that virtual reality exposure therapy is a beneficial technique to lessen participants' anxiety levels. The findings obtained from this study shows that virtual public speaking environment provoke high anxiety in a group of participants and that can be used to manage this anxiety in an appropriate way. Therefore, this study have important implications for personal improvement of software practitioners because it allows anxious participants not only confront with their fears and worries but also help them to overcome them. 
+
+Public speaking anxiety is a type of social phobia, which might be commonly seen in novice software engineers. It is usually triggered by a fear of social performance especially when the performer is unfamiliar with the audience. Today, many software engineering activities (e.g. code inspection, peer review, daily meetings, etc.) require social gatherings where individuals need to present their work. However, novice software engineers may not be able to reduce their performance anxiety during their course of education. In this study, we propose a virtual reality approach to construct a practice environment for improving novice software engineers' pubic speaking experiences. Consequently, we examine the effects of virtual reality intervention on the public speaking experience of six novice software engineers from a computer engineering department. We designed a virtual auditorium to simulate the presentation delivery environment and findings suggest that using this infrastructre for training purposes can reduce presenter anxiety levels – which is consistent with related published studies. We believe that this virtual auditorium environment can deliver benefits for students and practitioners alike in terms of addressing the anxiety that is often associated with early stage career presenters.
+
+\end{abstract}
+
+\begin{keywords}
+Virtual reality, public speaking anxiety, personal process improvement.
+\end{keywords}
+\newpage
+
+\section{Introduction}
+
+Software development is a social activity that requires a variety of social gatherings such as daily stand-up meetings, project presentations, and public speaking. These activities are usually essential to improve a software practitioner's career and therefore important to practice at early stages of a software engineering (SE) career. Although such social skills are very important in the career of a software engineer, it has been observed that novice software engineers (i.e. individuals who have less than one year of industrial experience) are worried when making presentation or meeting with others~\cite{bernardez2014controlled}. To date, a number of studies have attempted to evaluate the impact of social skills in SE careers. Hazzan and Har-Shai~\cite{hazzan2014teaching} conducted a study to figure out the thoughts of the novice software engineers about their skills. According to the results of this study, novice software engineers see themselves as inadequate to make presentations, and they want to fill this gap with the help of experts in SE area. Additionally, Peters and Moreno~\cite{peters2015educating} organized a study to learn the opinions of novice software engineers about what skills will be more important for them when they will be project managers in the future. The results point out that public speaking and presentation skills are listed as one of the factors that affects their success or failure. As it can be seen, when the demands of both education and business are considered, public speaking is one of the essential skills for novice software engineers~\cite{darmuki2017evaluating}. In fact, most of the anxious individuals suffer from feeling nervous and helpless before a presentation or an assignment, panicking, or losing concentration during a test~\cite{vitasari2011pilot}. Consequently, they may fail to fulfill their potential both at school and at their work-life.
+
+Developing a pre-speech before the presentation or testing yourself in the presentation environment is some of the suggested solutions to overcome public speaking and presentation anxiety of the individuals~\cite{huff2008public}. However, people cannot find a way to test themselves in a real-life environment similar to the presentation environment before the presentation. It is difficult to prepare a real environment that provides the same conditions as the presentation environment. Virtual reality (VR) solves this problem by providing a useful and immersive training environment that includes real-life conditions for individuals~\cite{sampaio2014application}. Therefore, people can develop themselves and gain experience by training in the virtual environment designed similar to a real experience~\cite{jang2017direct}. Due to this feature of the virtual environment, VR is one of the most effective tools that is used for training of individuals in recent years. There are many studies in different working areas such as increasing firemen's spatial navigation skills~\cite{bliss1997effectiveness} and developing the skills of the medical residents~\cite{seymour2002virtual,grantcharov2004randomized} that benefit from the applications of VR. Finally, it has been demonstrated that a serious game is beneficial to train novice software engineers about ISO/IEC 12207:1995~\cite{aydan2016teaching} which has also confirmed the effectiveness of a virtual simulation environment.
+
+The goal of this study is to design a virtual auditorium in order to increase the novice software engineers' ability to make presentations to a group of individuals and to reduce their worries about public speaking. The aim of designing virtual auditorium is to test whether virtual reality exposure therapy (VRET), a kind of systematic exposure to feared real life situations by using virtual worlds, produces significant improvements on the symptoms of public speaking anxiety (PSA) for novice software developers. It was hypothesized that a significant difference would be found on self-report measures of public speaking anxiety before and after the intervention.
+
+The remainder of this paper is divided as follows: In section two, a review of literature is introduced. The following section explains the research process. The fourth section presents the findings of the research. Finally, the last section gives a brief summary and critique of the results. It further suggests future directions.   
+
+
+\section{Background and Related Works}
+
+Anxiety is a natural emotion conceptualized by Spielberger~\cite{spielberger1983manual} as a sense of tension, nervousness, and worry related with arousal of the nervous system~\cite{vitasari2010relationship}. From the evolutionary perspective, some forms of anxiety have functional value to adapt potential threats and risks. It means that an appropriate level of anxiety is crucial to stimulate person for fight or flight in response to a danger. However, when anxiety is perceived as uncontrollable and uncertain, it has many disruptive effects on individuals in various contexts such as social or academic~\cite{maner2010adaptations}. For instance, Vitasari et al.~\cite{vitasari2010relationship} conducted a study to illustrate the relation between excessive anxiety and academic performance. Based on the results of this study, the higher levels of anxiety individuals show the poorer academic performance. 
+
+PSA is a specific form of social anxiety occurring in real or anticipated an oral performance situation. Individuals with PSA usually tend to avoid anxiety-eliciting situations~\cite{harris2002brief}. They demonstrate a loss of physiological, cognitive and behavioral control where social or academic performance has become inevitable for the speakers. Accordingly, when autonomic nervous system is activated, individuals with PSA experience increased heart rate, blood pressure, sweating, gastrointestinal discomfort, diarrhea and muscle tension~\cite{bernatova2016lack,granigg2013essential}. In addition to these physical symptoms, the cognitive system represents self-monitoring and negative cognitions when preparing and presenting speeches~\cite{bodie2010racing}. In the cognitive model of PSA, irrational beliefs (e.g., ``It is awful that I am in this situation") leads to response expectancies (e.g.,``I expect to be anxious in this situation") and automatic thoughts (e.g.,``They will laugh at me") respectively, which results in speech-related anxiety~\cite{vislua2013core}. Besides, behavioral aspects of PSA include a list of anxious behaviors such as stiff, restless, or trembling displayed while speaking~\cite{bodie2010racing}. Research evidence suggested that anxiety level during a public speaking performance is likely to occur with the highest volume at the open. In other words, anticipatory anxiety starts out at the peak level just before speaking and over time anxiety descend to a lower level through the speaking and post-speaking periods~\cite{behnke1999milestones}.
+
+Since PSA is more and more recognized as a serious problem leading to distress and dysfunction in those suffering from it, increasing efforts to develop and document various treatment strategies have emerged. Namely, exposure-based treatments have been found to be effective for the treatment of PSA. The basic premise of exposure-based treatment is that individuals realize that the expected catastrophic situation does not happen through repeated approach toward fear provoking stimuli; thus, they have a chance to modify their maladaptive cognitions and reprocess their emotions in more functional manner~\cite{hindo2011one}. Recently, VRET has increasingly been utilized to treat PSA~\cite{anderson2005cognitive,harris2002brief,safir2012virtual,wallach2009virtual}. In most cases, no differences have been found between VRET and exposure therapy; however, additional work is needed to address the equivalency of effect sizes. Moreover, it was supported that VRET is superior to wait list in treating social anxiety disorder. Accordingly, the participants receiving VRET significantly improved on standardized measures of public speaking fears and a behavioral avoidance task as compared to wait list. In the following 3- and 12-month, it was shown that they maintained treatment gains~\cite{anderson2013virtual}.
+
+
+VRET, characterized by utilizing sophisticated hardware and software techniques to immerse individuals in virtual environments, has gained an increasing amount of attention in scientific research in recent years~\cite{diemer2016fear}. It consists of real-time computer graphics, body tracking devices as well as other sensory inputs to create a virtual environment for patients~\cite{oprics2012virtual}. One of the major strengths of this technique is that VR environment provides emerging opportunities to individuals with an active participation in a three-dimensional world. Moreover, participants are able to manipulate their environment via a second position sensor for some environments~\cite{anderson2004computer}. In terms of validity as another strength, various research findings suggested that VR environment based performance is predictive of real-world performance. In other words, individuals suffering from anxiety demonstrate behavioral, affective, and cognitive reactions in a VR environment similar to those experienced with a live audience~\cite{brundage2015real}. The underlying mechanism of VRET is based on systematically exposure individuals to feared stimuli that are relevant to context while avoidance is prevented~\cite{burstin2010virtual,oprics2012virtual}.
+
+In particular, head mounted display (HMD) or computer automatic virtual environment (CAVE) to enable immersion. Through these techniques, it allows individuals to get involved in the virtual world through experiencing a subjective sense of ``\emph{really being in one place or environment}"~\cite{krijn2004virtual}. In exposure-based therapy such as in vivo or imaginal, graded exposure is used to work on a hierarchy of anxiety-producing situations in a gradual manner. The therapist arranges therapy sessions to desensitize the patient for those situations and they continue until habituation to occur. All exposure-based treatments including repeated contact to threat-related cues have the information that disconfirms anxiety beliefs; however; the distinctive feature of VRET is that the illusion of being in a different place which can be described as ``\emph{presence}". For the effectiveness of VRET, the essential point is the level of immersion. Moreover, the more intense and vivid emotions the VRET elicits, the better results individuals get. In addition, generalization to daily life situations without any avoidance is important~\cite{krijn2004virtual}. 
+
+
+It is evident that VRET has several clinical and methodological advantages, though for some individuals there may also be a downside associated with VR related sweating, stomach awareness, dizziness, headache, and drowsiness~\cite{bush2008viability}. First of all, it is a cost-effective program compared to other exposure-based methods. Although in vivo and imaginal exposure has similar therapeutic goals with VRET, it provides well-controlled and idiosyncratic context in terms of the quality, duration and frequency of exposure. Furthermore, several actual trauma-related scenarios (e.g. war or accidents) can be difficult to repeat; however, by means of VRET it is possible to recreate them in virtual environment without confronted with real anxiety provoking stimuli. Besides, therapists have more control over exposure process to modify and manipulate the stimuli eliciting anxiety. This approach allows the therapist to simultaneous measure physiological and cognitive variables. Notably, some patients do not respond to traditional exposure therapies due to overt avoidance behaviors or failure to imagine situations. However, VRET uses immersion to confront patients with their anxiety in safe and gradual manner. Hence, the patients to more easily realize the difference between non-threatening and threat-related stimuli~\cite{morina2015can,tichon2006virtual}. 
+
+\section{Methodology}
+\subsection{Participants}
+The current study was conducted with 6 novice software engineers who suffer from public speaking anxiety at \c{C}ankaya University. The sample (N = 6) was predominantly female (83.3\%) and the mean age for participants was 21 years (SD = 1.41 years, Range = 21 - 23). All participants fulfilled criteria for social phobia as determined by the Liebowitz Social Anxiety Scale (cut-off $>$ 25 in the sub-scale of ``\emph{fear or anxiety}"; cut-off $>$ 25 in the sub-scale of ``\emph{avoidance behaviour}")~\cite{liebowitz1987social}. Moreover, participants who have high level of anxiety about social interaction were accepted as second inclusion criteria. Exclusion criteria were, (a) history of neurological or physical impairment; (b) cognitive impairment; (c) comorbid psychotic disorder; (d) using any medication; (e) current psychological or psychiatric treatment.
+
+\subsection{Measures}
+\begin{itemize}
+\item \textbf{Demographic Information Form:} The questions of the demographic information form will consist of an e-mail address, gender, age, education status, socioeconomic status, occupational status, duration of social phobia symptoms, and history of psychiatric and chronic illness diagnosis.
+
+\item \textbf{Liebowitz Social Anxiety Scale:} Liebowitz Social Anxiety Scale (LSAS)~\cite{liebowitz1987social} will be used to examine the anxiety level of social phobic people in a wide range of social situations. Each item is rated separately for ``\emph{fear or anxiety}" (anchors of 0: none to 3: severe) and for ``\emph{avoidance behaviour}" (anchors of 0: never and 3: usually). The internal consistency of the scale ranges from .81 to .92. The Turkish adaptation of LSAS scale was studied by~\cite{soykan2003liebowitz}. 
+
+\item \textbf{Subjective Units of Distress Scale (SUDs):} Subjective Units of Distress Scale (SUDs) is used to examine an individual's baseline level of anxiety. Participants rate their anxiety level using a scale of 0 to 100, where 0 $=$ totally relaxed and 100 $=$ highest distress/fear/anxiety/discomfort that you have ever felt~\cite{wolpe2psychotherapy}. 
+
+\item \textbf{Interaction Anxiousness Scale:} Interaction Anxiousness Scale (IAS)~\cite{leary1993interaction} is a self-report measure on a 5-point Likert scale with anchors ranging from not at all characteristic of me (1) to very characteristic of me (5). It measures the subjective experience of anxiety associated with social interactions. The internal consistency of the scale was .88. The Turkish adaptation of scale was studied by~\cite{cocskun2009etkilecsim}.
+
+\item \textbf{Speech Task:} A speech task was administered to study on cognitive, behavioral, and physiological components of anxiety to a social stressor (i.e. public speaking) at baseline, during intervention and post-intervention. Subjects were invited in the virtual reality laboratory and said that they would be participating in a task to examine their public speaking anxiety. The task involved an impromptu speech which required the subject to speak to a number of audiences in a virtual class setting. Just before the speech, the therapist asked participants to rate their level of situational anxiety from 0 (not anxious) to 100 (extremely anxious) by using SUDs.
+
+\end{itemize}
+
+
+\subsection{Procedure}
+
+First of all, ethical approval was obtained from the \c{C}ankaya University Human Subjects Ethics Ethical Committee. Eligibility for the current study was assessed via self-measurement instruments mentioned above to a group of novice software engineers if participants met inclusion criteria. Then, candidates were invited to participate in the treatment program. All were volunteered for the study and an informed consent was given to each participant.  
+
+The study consisted of two intervention sessions. Firstly, participants received an individual therapy session lasting about an hour according to a treatment manual~\cite{hope2010managing}. This therapy session covers the material such as components of anxiety, possible causes of anxiety and dysfunctional thinking patterns. At the end of the session, an anxiety hierarchy about performing a speech in front of a class that unique for each participant was built and participant's anxiety rate was assessed by using the SUDs (A1). In addition, the effect of avoidance on the maintenance of anxiety was discussed. An individual therapy session was followed by virtual reality exposure intervention (VREI).  
+
+During VREI, the participant wore a head-mounted display (Oculus RIFT) that presented a computer-generated environment including a virtual class. The session lasted about 35-40 minutes. In this session, the speech task adapted from a standardized speech assessment protocol~\cite{beidel1989assessment} was implemented. Participants were told that they would talk on one or more of the 3 controversial topics (e.g., gay marriage, religion in school, illegal immigration) which were blindly selected one of five note cards. After that, three minutes were given to prepare their speech. Before exposure, a trial simulation was shown participants to adapt virtual reality exposure. Anxiety was assessed using the SUDs at four points during the exposure: prior to giving instructions for the exposure (T1), immediately after introduction to the audience but before the speech began (T2), a retrospective rating of peak anxiety during the speech (T3) and immediately after the exposure (T4). During VREI, the therapist could manipulate audience reactions (e.g., looking bored, yawning, asking question, talking or playing with phone). Virtual audience members could also ask to speak in a loud voice or predetermined questions (e.g., ``\emph{Could you explain last words again ?}"). Meanwhile, the therapist elaborated the participant's anxiety and encouraged therapeutic exposure to feared situations according to the personal anxiety hierarchy. Participants were exposed to the items on their hierarchy until their anxiety decreased.
+
+
+\subsection{System Functions and Implementation}
+
+In this study, a virtual environment was designed so that the participants could make presentations in an environment similar to the real life auditorium environment. At this point, they have an opportunity to reduce their worries and anxiety levels by facing the events that increase their level of anxiety during presentations in real life. In addition to this property of designed environment, the therapist was given the authority to control the virtual environment. Hence, the therapist can measure the anxiety levels of the individuals during the presentation by using the events or situations that increase the anxiety levels of those detected during the first intervention. These events and situations are listed as: number of people in the class, clothing style (e.g.; formal, informal) and gender of the people, and activities of the audiences (e.g.; messaging, ringing phone, asking question, yawning, laughing, talking, leaving from the auditorium).
+
+There are 2 types of users in the virtual environment, one being a therapist and the other being a presenter. The therapist has the authority to set up the virtual environment at the desired characteristics. At the same time, the therapist has the authority to control the environment simultaneously while the presenter makes a live presentation in the environment created by the therapist. 
+
+When the users in both user types connect to the environment, the main screen appears as shown in Figure 1. In this screen, ``\emph{LAN Host}" button is designed and enabled for the therapist and ``\emph{LAN Client}" button is designed and enabled for the presenter. After the therapist clicks ``\emph{LAN Host}", she is directed to the screen (Figure 2) to enter the properties of the virtual auditorium that she will design for the presenter. In this screen, text-boxes were placed to allow the therapist to enter formal and informal male and female numbers. The auditorium has a maximum of 32 people, and people are automatically created as much as the values entered in the text-boxes. A total of 8 different models, two different formal and informal male and female models, are placed randomly in order to increase the reality in the auditorium. After the therapist creates the class, the presenter can enter the designed auditorium (Figure 4) by inputting the IP address of the host computer.
+\newpage
+
+\begin{multicols}{2}
+
+{ \centering
+ \includegraphics[width=\columnwidth]{Images/girisEkrani.png}\\
+ \captionof{figure}{Home Screen of The Auditorium}\label{t1}
+}
+
+{ \centering
+ \includegraphics[width=\columnwidth]{Images/kisiSayisi.png}\\
+ \captionof{figure}{Feature Input Screen for The Environment to Be Created}\label{t2}
+}
+
+{ \centering
+ \includegraphics[width=\columnwidth]{Images/secim.png}\\
+ \captionof{figure}{Event Selections Screen}\label{t3}
+}
+
+{ \centering
+ \includegraphics[width=\columnwidth]{Images/sunucu.png}\\
+ \captionof{figure}{View of Auditorium from The View of Presenter}\label{t4}
+}
+\end{multicols}
+
+After the presenter is connected to the class environment, she may start to present in the class environment especially designed for him/her. During the presentations, the therapist has the ability to control audiences by navigating the auditorium with w, a, s and d keys on keyboard, as seen in Figure 3. The therapist chooses one of the audience by clicking the left button of the mouse. Then, a list of actions appears on the screen. By choosing one of the action buttons on this screen that comes against the therapist, the participant gets the action she chooses.
+
+%\begin{figure}[h]
+%    \centering
+%    \includegraphics[width=0.6\textwidth]{Images/sunucu.png}
+%    \caption{View of Classroom from The View of Presenter}
+%    \label{fig:mesh55}
+%\end{figure}
+ 
+
+\section{Results}
+The data was analyzed with SPSS 20 using the Wilcoxon signed-rank test which is suitable analysis for small subject numbers and repeated measures~\cite{field2005regression}. The results are seen in Figure 5.
+
+%\begin{multicols}{2}
+
+%{ \centering
+% \includegraphics[width=\columnwidth]{Images/fig1.png}\\
+% \captionof{figure}{?}\label{1}
+%}
+
+%{ \centering
+% \includegraphics[width=\columnwidth]{Images/fig2.png}\\
+% \captionof{figure}{?}\label{2}
+%}
+
+%{ \centering
+% \includegraphics[width=\columnwidth]{Images/fig3.png}\\
+% \captionof{figure}{?}\label{3}
+%}
+
+%{ \centering
+% \includegraphics[width=\columnwidth]{Images/fig4.png}\\
+% \captionof{figure}{?}\label{4}
+%}
+%\end{multicols}
+ 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.57\textwidth]{Images/fig5.png}
+    \caption{Scores of Individuals in Each Time Point of VREI}
+    \label{fig:mesh50}
+\end{figure}
+
+In the study, the average anxiety level of participants is 84.67 ($SD = 13.66$) at the assessment, 65.00 ($SD = 12.25$) prior to giving instructions for the exposure, 70.00 ($SD = 20.00$) before the speech began and 80.00 ($SD = 10.96$) at peak during the speech; however, the mean anxiety level is 35.00 ($SD = 25.69$) immediately after the exposure. In addition to these numerical values, Figure 5 shows that participants' SUDs levels were significantly lower at T4 than at A1, $z = −2.20$, $p < .05$, $r = −.90$; lower at T4 than at T1, $z = −2.21$, $p < .05$, $r = −.90$; lower at T4 than at T2, $z = −2.21$, $p < .05$, $r = −.90$; lower at T4 than at T3, $z = −2.20$, $p < .05$, $r = −.90$. 
+
+\section{Discussion and Conclusion}
+
+A software development organization can be considered as a social ecosystem that connects a variety of stakeholders by using a software process which is certainly affected from interpersonal relationships. These relationships usually based on presentation of a software artifact (e.g. source code, documentation). In particular, some parts of this work should be presented in front of a group of audience. PSA, a subtype of social phobia, which can be a destructive disorder among novice software engineers. Such individuals might have excessive concerns about being embarrassed and judged by other people~\cite{ling2012effects}. Some research indicated that subjects exposed to the feared social situations and learnt to modify their thoughts and behaviors show decreased anxious symptoms~\cite{klinger2005virtual}. In virtual reality exposure therapy, this kind of anxiety is elicited by a predesigned virtual environment, and here in this study, it is used to observe a small set of novice computer engineers. Indeed, virtual reality has increasingly been used as a therapeutic tool to explore human behaviors and emotions as well as cognition. It provides a well-controlled environment so that therapist can manipulate the stimuli determined beforehand. Since VRET can be adapted to individual's needs, it opens door to creativity and flexibility for therapeutic usage~\cite{wiederhold1998review}. The purpose in the present study was to test the effects of VREI on public speaking anxiety of novice software engineers. 
+
+In the current research, it was hypothesized that novice software engineers with PSA would report not only the highest level of anxiety during intervention but also lower level of anxiety after the VREI. The findings supported possible effects of VREI and showed significant decrease in anxiety rates. This result suggested that the virtual public speaking environment did successfully provoke high anxiety in the participants and that can be used to manage this anxiety in an appropriate way. 
+
+Methodological limitations of the study must be considered when interpreting the results. First of all, this study involved small sample size; therefore, these data should be considered preliminary. Most obviously, it will be important to replicate these data with large samples. Secondly, the data is based on self-reported measures. However, future work should use additional measures of PSA such as a structural clinical diagnostic interview. The third one is that causal inferences cannot be made due to the cross-sectional nature of the study design. Longitudinal research is needed to demonstrate the lasting impact of repeated exposure. 
+
+The main advantage of using virtual reality is that it allows participants a safety environment to test their fears and thoughts in a social context. However, further studies need to be conducted to test whether our results can also be generalized to real social situations by using behavioral task which is implemented before and after the VREI. Moreover, future research should implement a study with a control group so that the differences between intervention group and control group can clearly be identified. Although our primary results are encouraging, a set of exposure sessions is also needed to improve the protocol used in this pilot study. In our study, subjects could be exposed (in the VR environment) to various types of audiences, with anxiety levels being self-reported. However, further experimental investigations are needed to expand the findings of this study such as how anxiety levels fluctuate for different audience groups where psychophysiological measures (i.e. heart rate or skin temperature) may also be added the protocol to understand stress response in an extended way. 
+
+%With exposure to feared stimuli, it provides enlightening information about whether anxiety experienced by participants differs in the anticipation, occurrence and recovery process of speech performance. 
+
+%However, more studies are needed to enable for better comparison between groups. More research is also required to expand the findings of this study. Suggestions are made for its broader applications and further research.
+
+\bibliographystyle{splncs}
+
+\bibliography{EuroSPI}
+\end{document}
+
